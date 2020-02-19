@@ -3,7 +3,7 @@
 
 Name:          memcached
 Version:       1.5.10
-Release:       2
+Release:       3
 Epoch:         0
 Summary:       A high-performance, distributed memory object caching system
 License:       BSD
@@ -136,3 +136,5 @@ fi
 * Fri Nov 29 2019 Lijin Yang <yanglijin@huawei.com> - 0:1.5.10-2
 - init package
 
+* Wed Feb 19 2020 yuxiangyang <yuxiangyang4@huawei.com> - 0:1.5.10-3
+- fix package compile error
