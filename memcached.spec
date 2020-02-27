@@ -3,7 +3,7 @@
 
 Name:          memcached
 Version:       1.5.10
-Release:       3
+Release:       4
 Epoch:         0
 Summary:       A high-performance, distributed memory object caching system
 License:       BSD
@@ -85,8 +85,8 @@ install -m 644 memcached.pp.bz2 %{buildroot}%{_datadir}/selinux/packages
 
 %pre
 getent group  memcached >/dev/null || groupadd -r memcached
-getent passwd memcached >/dev/null || useradd -r -g memcached -d /run/memcached i \
-                                      -s /sbin/nologin -c "Memcached daemon" memcached
+getent passwd memcached >/dev/null || useradd -r -g memcached -d /run/memcached \
+       -s /sbin/nologin -c "Memcached daemon" memcached
 exit 0
 
 %pre selinux
@@ -133,6 +133,9 @@ fi
 %{_mandir}/man1/memcached.1*
 
 %changelog
+* Thu Feb 27 2020 Lijin Yang <yanglijin@huawei.com> - 0:1.5.10-4
+- fix install failed
+
 * Fri Nov 29 2019 Lijin Yang <yanglijin@huawei.com> - 0:1.5.10-2
 - init package
 
