@@ -85,8 +85,8 @@ install -m 644 memcached.pp.bz2 %{buildroot}%{_datadir}/selinux/packages
 
 %pre
 getent group  memcached >/dev/null || groupadd -r memcached
-getent passwd memcached >/dev/null || useradd -r -g memcached -d /run/memcached i \
-                                      -s /sbin/nologin -c "Memcached daemon" memcached
+getent passwd memcached >/dev/null || useradd -r -g memcached -d /run/memcached \
+       -s /sbin/nologin -c "Memcached daemon" memcached
 exit 0
 
 %pre selinux
