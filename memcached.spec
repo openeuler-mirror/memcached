@@ -3,7 +3,7 @@
 
 Name:          memcached
 Version:       1.5.10
-Release:       4
+Release:       5
 Epoch:         0
 Summary:       A high-performance, distributed memory object caching system
 License:       BSD
@@ -20,6 +20,7 @@ BuildRequires: selinux-policy-devel libevent-devel
 %{?with_sasl:BuildRequires: cyrus-sasl-devel}
 %{?with_seccomp:BuildRequires: libseccomp-devel}
 
+Requires:         %{name}-help = %{version}-%{release}
 Requires(pre):    shadow-utils
 Requires(post):   systemd
 Requires(preun):  systemd
@@ -133,6 +134,9 @@ fi
 %{_mandir}/man1/memcached.1*
 
 %changelog
+* Fri Nov 06 2020 Ge Wang <wangge20@huawei.com> - 0:1.5.10-5
+- set help package as memcached package's install require
+
 * Thu Feb 27 2020 Lijin Yang <yanglijin@huawei.com> - 0:1.5.10-4
 - fix install failed
 
