@@ -3,7 +3,7 @@
 
 Name:          memcached
 Version:       1.5.10
-Release:       5
+Release:       6
 Epoch:         0
 Summary:       A high-performance, distributed memory object caching system
 License:       BSD
@@ -14,6 +14,7 @@ Source2:       memcached.sysconfig
 
 Patch0001:     memcached-unit.patch
 Patch6000:     CVE-2019-11596.patch
+Patch6001:     CVE-2019-15026.patch
 
 BuildRequires: systemd perl-generators perl(Test::More) perl(Test::Harness)
 BuildRequires: selinux-policy-devel libevent-devel
@@ -134,6 +135,9 @@ fi
 %{_mandir}/man1/memcached.1*
 
 %changelog
+* Thu Jan 07 2021 wangyue<wangyue92@huawei.com> - 0:1.5.10-6
+- fix CVE-2019-15026
+
 * Fri Nov 06 2020 Ge Wang <wangge20@huawei.com> - 0:1.5.10-5
 - set help package as memcached package's install require
 
