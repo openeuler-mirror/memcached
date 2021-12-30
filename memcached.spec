@@ -6,11 +6,11 @@
 %bcond_with tests
 
 Name:          memcached
-Version:       1.6.9
+Version:       1.6.12
 Release:       1
 Epoch:         0
 Summary:       A high-performance, distributed memory object caching system
-License:       BSD
+License:       GPL-2.0+
 URL:           https://www.memcached.org/
 Source0:       https://www.memcached.org/files/memcached-%{version}.tar.gz
 Source1:       https://releases.pagure.org/memcached-selinux/memcached-selinux-1.0.2.tar.gz
@@ -139,6 +139,9 @@ fi
 %{_mandir}/man1/memcached.1*
 
 %changelog
+* Wed Dec 29 2021 baizhonggui <baizhonggui@huawei.com> - 0:1.6.12-1
+- update to 1.6.12
+
 * Tue Jun 15 2021 liyanan <liyanan32@huawei.com> - 0:1.6.9-1
 - update to 1.6.9
 
