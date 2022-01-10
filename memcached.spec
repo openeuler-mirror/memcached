@@ -7,7 +7,7 @@
 
 Name:          memcached
 Version:       1.6.12
-Release:       1
+Release:       2
 Epoch:         0
 Summary:       A high-performance, distributed memory object caching system
 License:       GPL-2.0+
@@ -46,7 +46,12 @@ access to the memcached binary include files.
 Summary:       Selinux policy module
 License:       GPLv2
 BuildRequires: selinux-policy
-%{?selinux_requires}
+Requires:      selinux-policy >= 35.5
+BuildRequires: selinux-policy-devel
+Requires(post): selinux-policy-base >= 35.5
+Requires(post): libselinux-utils
+Requires(post): policycoreutils
+Requires(post): policycoreutils-python3
 
 %description selinux
 Install memcached-selinux to ensure your system contains the latest SELinux policy
@@ -139,6 +144,9 @@ fi
 %{_mandir}/man1/memcached.1*
 
 %changelog
+* Mon Jan 10 2022 xu_ping <xuping33@huawei.com> - 0:1.6.12-2
+- Use policycoreutils-python3 to fix install failed
+
 * Wed Dec 29 2021 baizhonggui <baizhonggui@huawei.com> - 0:1.6.12-1
 - update to 1.6.12
 
