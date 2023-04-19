@@ -6,8 +6,8 @@
 %bcond_with tests
 
 Name:          memcached
-Version:       1.6.12
-Release:       2
+Version:       1.6.19
+Release:       1
 Epoch:         0
 Summary:       A high-performance, distributed memory object caching system
 License:       GPL-2.0+
@@ -144,6 +144,9 @@ fi
 %{_mandir}/man1/memcached.1*
 
 %changelog
+* Wed Apr 19 2023 xu_ping <707078654@qq.com> - 0:1.6.19-1
+- upgrade to 1.6.19
+
 * Mon Jan 10 2022 xu_ping <xuping33@huawei.com> - 0:1.6.12-2
 - Use policycoreutils-python3 to fix install failed
 
