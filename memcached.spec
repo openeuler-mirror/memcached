@@ -7,7 +7,7 @@
 
 Name:          memcached
 Version:       1.6.12
-Release:       2
+Release:       3
 Epoch:         0
 Summary:       A high-performance, distributed memory object caching system
 License:       GPL-2.0+
@@ -64,6 +64,10 @@ optimised for use with this version of memcached.
 %patch1 -p1 -b .unit
 
 %build
+%if "%toolchain" == "clang"
+	export CFLAGS="$CFLAGS -Wno-strict-prototypes -Wno-error=unused-but-set-variable -Wno-embedded-directive"
+	export CXXFLAGS="$CXXFLAGS -Wno-strict-prototypes -Wno-error=unused-but-set-variable -Wno-embedded-directive"
+%endif
 %configure \
   %{?with_sasl: --enable-sasl --enable-sasl-pwdb} \
   %{?with_seccomp: --enable-seccomp} \
@@ -144,6 +148,9 @@ fi
 %{_mandir}/man1/memcached.1*
 
 %changelog
+* Mon May 08 2023 yoo <sunyuechi@iscas.ac.cn> - 0:1.6.12-3
+- fix clang build error
+
 * Mon Jan 10 2022 xu_ping <xuping33@huawei.com> - 0:1.6.12-2
 - Use policycoreutils-python3 to fix install failed
 
